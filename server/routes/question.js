@@ -21,6 +21,15 @@ router.get('/:id', async function(req, res, next) {
     }
 });
 
+router.get('/:id/cards', async function(req, res, next) {
+  try {
+    res.json(await question.getCards(req.params.id));
+  } catch (err) {
+    console.error(`Error while getting question ${req.params.id}`, err.message);
+    next(err);
+  }
+});
+
 router.post('/', async function(req, res, next) {
     try {
         res.json(await question.create(req.body));

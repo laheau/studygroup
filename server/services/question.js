@@ -43,8 +43,34 @@ async function create(question) {
     return {message};
 }
 
+async function getCards(id) {
+    const result = await db.query(
+        `
+            SELECT *
+            FROM card
+            WHERE question_id = ${id}
+        `
+    )
+
+    return {result}
+}
+
+async function getAnswers(id) {
+    const result = await db.query(
+        `
+            SELECT *
+            FROM answer
+            WHERE question_id = ${id}
+        `
+    )
+
+    return {result}
+}
+
 module.exports = {
     getMultiple,
     getSingle,
-    create
+    create,
+    getCards,
+    getAnswers
 }
