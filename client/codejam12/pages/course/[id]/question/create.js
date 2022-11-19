@@ -38,12 +38,12 @@ const Create = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(body)
-        });
+        }).then(router.push(`/course/${id}`));
     }
 
     return (
         <div>
-            <form className="flex flex-col justify-center items-center content-center min-h-screen">
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center content-center min-h-screen">
                 <label className="text-lg font-bold">
                     <div className="flex flex-col items-center">
 
@@ -61,13 +61,7 @@ const Create = () => {
                         <input className="p-[5px] outline-black rounded-lg border-black border-2 m-5" type="text" name="tags" defaultValue={''} onChange={handleTagsChange} />
                     </div>
                 </label>
-                <input
-                    type="submit"
-                    className="p-[5px]
-                   bg-lime-200"
-                    onSubmit={handleSubmit}>
-                    SUBMIT
-                </input>
+                <input type="submit" className="p-[10px] bg-lime-200 rounded-lg  transition transform hover:scale-125"/>
             </form>
         </div>
     )
