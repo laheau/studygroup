@@ -38,11 +38,11 @@ async function getQuestions(course_id) {
 }
 async function getStudents(course_id) {
     const questions = await db.query(
-        `SELECT * FROM student s 
-        INNER JOIN student_course sc
-        ON s.student_id=sc.student_id
-        INNER JOIN course c
-        ON sc.course_id='${course_id}'`
+        `
+        SELECT * FROM student
+        INNER JOIN student_course ON student.student_id = student_course.student_id
+        WHERE student_course.course_id = '${course_id}'
+        `
     );
     const data = helper.emptyOrRows(questions);
     
