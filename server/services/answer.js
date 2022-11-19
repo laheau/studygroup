@@ -4,9 +4,9 @@ const config = require('../config');
 
 async function create(answer) {
     const result = await db.query(
-        `INSERT INTO question 
-        (question_id, content, tags) VALUES
-        ('${answer.question_id}', '${answer.content}', '${answer.tags}')`
+        `INSERT INTO answer 
+        (question_id, content, student_id) VALUES
+        ('${answer.question_id}', '${answer.content}', '${answer.student_id}')`
     );
     let message = 'Error in creating question'
     if (result.affectedRows) {
