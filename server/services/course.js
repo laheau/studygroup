@@ -51,9 +51,36 @@ async function getStudents(course_id) {
     }
 }
 
+async function addStudent(course_id, body) {
+    const questions = await db.query(
+        `INSERT INTO student_course (student_id, course_id) VALUES ('${body.student_id}', '${course_id}')`
+    );
+    const data = helper.emptyOrRows(questions);
+    
+    return {
+        data
+    }
+}
+
+
+async function create(course) {
+    const result = await db.query(
+        `INSERT INTO question 
+        (course_id, name) VALUES
+        ('${course.courseId}', '${course.name}')`
+    );
+    let message = 'Error in creating question'
+    if (result.affectedRows) {
+        message = 'Question created successfully'
+    }
+    return {message};
+}
+
 module.exports = {
     getMultiple,
     getQuestions,
     getStudents,
-    getStudySets
+    getStudySets,
+    addStudent,
+    create
 }
