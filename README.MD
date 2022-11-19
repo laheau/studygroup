@@ -1,3 +1,3 @@
-###Code Jam Project
+### Code Jam Project
 
-##Study Cards Much Much Better
+## Study Cards Much Much Better
