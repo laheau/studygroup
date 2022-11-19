@@ -19,11 +19,17 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function ResponsiveGrid() {
   const [courses, setCourses] = useState([]);
+  const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:8000/course/all')
-      .then((response) => response.json())
-      .then((data) => setCourses(data.data));
+    if (!fetched) {
+      fetch('http://localhost:8000/course/all')
+        .then((response) => response.json())
+        .then((data) => {
+          setCourses(data.data)
+          setFetched(true);
+        });
+    }
   }, [])
 
 
@@ -36,10 +42,10 @@ export default function ResponsiveGrid() {
             <Grid item xs={1} sm={4} md={1} key={course.course_id}>
               <Link href={`/course/${course.course_id}`}>
                 <div className='bg-lime-100 w-fit p-[15px] rounded-lg font-bold text-xl'>{course.course_id}</div>
-                </Link>
+              </Link>
             </Grid>
           )
-        } )}
+        })}
       </Grid>
     </Box>
   );
