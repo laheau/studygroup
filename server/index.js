@@ -1,6 +1,10 @@
 const express = require('express');
+var cors = require('cors')
+
 const app = express();
-const port = 3000;
+app.use(cors())
+
+const port = 8000;
 const cardRouter = require('./routes/card');
 const studentRouter = require('./routes/student');
 const studySetRouter = require('./routes/studySet');
