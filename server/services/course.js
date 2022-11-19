@@ -42,7 +42,7 @@ async function getStudents(course_id) {
         INNER JOIN student_course sc
         ON s.student_id=sc.student_id
         INNER JOIN course c
-        ON sc.course_id=c.course_id`
+        ON sc.course_id='${course_id}'`
     );
     const data = helper.emptyOrRows(questions);
     
@@ -51,9 +51,9 @@ async function getStudents(course_id) {
     }
 }
 
-async function addStudent(course_id, body) {
+async function addStudent(course_id, studentId) {
     const questions = await db.query(
-        `INSERT INTO student_course (student_id, course_id) VALUES ('${body.student_id}', '${course_id}')`
+        `INSERT INTO student_course (student_id, course_id) VALUES ('${studentId}', '${course_id}')`
     );
     const data = helper.emptyOrRows(questions);
     
@@ -65,7 +65,7 @@ async function addStudent(course_id, body) {
 
 async function create(course) {
     const result = await db.query(
-        `INSERT INTO question 
+        `INSERT INTO course 
         (course_id, name) VALUES
         ('${course.courseId}', '${course.name}')`
     );

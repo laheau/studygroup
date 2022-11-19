@@ -48,9 +48,9 @@ router.post('/', async function(req, res, next) {
   }
 });
 
-router.post('/:id/student', async function(req, res, next){
+router.post('/:id/:student', async function(req, res, next){
   try {
-    res.json(await course.addStudent(req.params.id, req.body));
+    res.json(await course.addStudent(req.params.id, req.params.student));
   } catch (err) {
     console.error(`Error while add students for course id ${req.params.id}`);
     next(err);

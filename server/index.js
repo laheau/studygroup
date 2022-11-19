@@ -4,6 +4,9 @@ const port = 3000;
 const cardRouter = require('./routes/card');
 const studentRouter = require('./routes/student');
 const studySetRouter = require('./routes/studySet');
+const courseRouter = require('./routes/course');
+const questionRouter = require('./routes/question');
+const answerRouter = require('./routes/answer');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,6 +18,9 @@ app.get("/", (req, res) => {
 app.use('/card', cardRouter)
 app.use('/student', studentRouter)
 app.use('/studySet', studySetRouter)
+app.use('/course', courseRouter)
+app.use('/question', questionRouter)
+app.use('/answer', answerRouter)
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
