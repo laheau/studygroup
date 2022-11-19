@@ -1,3 +1,4 @@
+const e = require('express');
 const express = require('express');
 const router = express.Router();
 const course = require('../services/course');
@@ -37,6 +38,23 @@ router.get('/:id/students', async function(req, res, next){
   }
 })
 
-router.post('/:id/:studentId', )
+
+router.post('/', async function(req, res, next) {
+  try {
+      res.json(await course.create(req.body));
+  } catch (err) {
+      console.error('Error while creating question', err.message);
+      next(err);
+  }
+});
+
+router.post('/:id/student', async function(req, res, next){
+  try {
+    res.json(await course.addStudent(req.params.id, req.body));
+  } catch (err) {
+    console.error(`Error while add students for course id ${req.params.id}`);
+    next(err);
+  }
+})
 
 module.exports = router;
