@@ -1,4 +1,4 @@
-import { Home, Face } from "@mui/icons-material";
+import { Home, AccountCircle } from "@mui/icons-material";
 import Link from "next/link";
 import React from "react";
 
@@ -6,15 +6,15 @@ export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-lime-500 mb-3">
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-lime-200 mb-3">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a
+            <Link
               className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-              href="#pablo"
+              href="/"
             >
               StudyBuddy
-            </a>
+            </Link>
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
@@ -44,7 +44,7 @@ export default function Navbar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                   href="/profile"
                 >
-                  <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"><Face /></i><span className="ml-2"></span>
+                  <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"><AccountCircle /></i><span className="ml-2"></span>
                 </Link>
               </li>
             </ul>
