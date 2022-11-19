@@ -36,7 +36,7 @@ const Question = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-    }).then(router.push(`/question/${id}`));
+    }).then(res => console.log(res));
   };
 
   useEffect(() => {
@@ -55,10 +55,6 @@ const Question = () => {
   }, [id]);
   console.log(question);
   return (
-    <html>
-      <head>
-        <title>{question.title}</title>
-      </head>
       <div className="flex flex-col mt-5 m-auto items-center h-screen content-center">
         <div className="flex flex-col bg-lime-100 p-[15px] rounded-lg w-[600px]">
           <h1 className="text-center text-2xl font-bold">{question.title}</h1>
@@ -115,7 +111,6 @@ const Question = () => {
           );
         })}
       </div>
-    </html>
   );
 };
 
