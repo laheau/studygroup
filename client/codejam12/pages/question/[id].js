@@ -17,7 +17,7 @@ const Question = () => {
     
 
     useEffect(() => {
-        if (id != undefined && id != prevId) {
+        if (id != undefined) {
 
             fetch(`http://localhost:8000/question/${id}`)
                 .then((response) => response.json())
@@ -26,7 +26,7 @@ const Question = () => {
                     if (data.answer_list != undefined) setAnswers(data.answer_list)
                 });
         }
-    }, [id, prevId])
+    }, [id])
 
     return (
         <div>

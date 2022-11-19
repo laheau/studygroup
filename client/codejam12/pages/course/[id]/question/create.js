@@ -53,15 +53,21 @@ const Create = () => {
                     <div className="flex flex-col items-center">
                         Content:
 
-                        <textarea className="p-[5px] outline-black rounded-lg border-black border-2 m-5" type="textarea" name="content" defaultValue={''} onChange={handleTitleChange} />
+                        <textarea className="p-[5px] w-[150%] h-[150%] outline-black rounded-lg border-black border-2 m-5" type="textarea" name="content" defaultValue={''} onChange={handleContentChange} />
                     </div>
                     <div className="flex flex-col items-center">
 
                         Tags:
-                        <input className="p-[5px] outline-black rounded-lg border-black border-2 m-5" type="text" name="tags" defaultValue={''} onChange={handleTitleChange} />
+                        <input className="p-[5px] outline-black rounded-lg border-black border-2 m-5" type="text" name="tags" defaultValue={''} onChange={handleTagsChange} />
                     </div>
                 </label>
-                <input type="submit" onSubmit={handleSubmit} />
+                <input
+                    type="submit"
+                    className="p-[5px]
+                   bg-lime-200"
+                    onSubmit={handleSubmit}>
+                    SUBMIT
+                </input>
             </form>
         </div>
     )

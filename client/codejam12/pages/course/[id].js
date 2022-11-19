@@ -15,7 +15,7 @@ const Course = () => {
     }, [id])
 
     useEffect(() => {
-        if (id != undefined && id != prevId) {
+        if (id != undefined) {
             fetch(`http://localhost:8000/course/${id}/questions`)
                 .then((response) => response.json())
                 .then((data) => setQuestions(data.data || []));
@@ -47,7 +47,7 @@ const Course = () => {
                 <Link
                     href={`/course/${id}/question/create`}
                 >
-                    <div className="bg-lime-200 text-xl font-bold rounded-lg p-[20px] transition transform hover:scale-125">
+                    <div className="bg-lime-200 my-5 text-xl font-bold rounded-lg p-[20px] transition transform hover:scale-125">
                         CREATE
                     </div>
                 </Link>
