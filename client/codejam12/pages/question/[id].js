@@ -59,8 +59,8 @@ const Question = () => {
   return (
     <div className="flex flex-row justify-between content-center">
       <div className="flex flex-col mt-5 m-auto items-center h-screen content-center">
-        <div className="flex flex-col bg-[#212326] p-[15px] rounded-lg w-[600px]">
-        <div onClick={() => setCreateCard(prev => !prev)} className="cursor-pointer w-fit mx-2 bg-white border-4 border-[#212326] rounded-[50%] p-[12px]">
+        <div className="flex flex-col bg-[#66b2ff] p-[15px] rounded-lg w-[600px]">
+        <div onClick={() => setCreateCard(prev => !prev)} className="cursor-pointer w-fit mx-2 bg-white border-4 border-[#66b2ff] rounded-[50%] p-[12px]">
           <Add />
         </div>
           <div className="flex flex-col justify-between">
@@ -96,7 +96,7 @@ const Question = () => {
               type="submit"
               title="submit"
               className="p-[10px]
-                    bg-[#212326]
+                    bg-[#66b2ff]
                     rounded-lg text-center font-bold text-white transition transform hover:scale-125"
               onSubmit={handleSubmit}
             >
@@ -108,13 +108,13 @@ const Question = () => {
         {answers.map((answer) => {
           return (
             <div className="my-1 " key={answer.answer_id}>
-              <div className="border-4 w-[500px] rounded-lg p-[15px] outline-[#212326] border-[#212326] bg-white">
+              <div className="border-4 w-[500px] rounded-lg p-[15px] outline-[#66b2ff] border-[#66b2ff] bg-white">
                 <div className="my-3">{answer.content}</div>
                 <div className="flex justify-between flex-row">
                   <div className="items-start">Author: Aymen Ouali</div>
                   <div className="items-end">
                     <div>
-                      <ThumbUp style={{cursor: 'pointer', marginRight: 10}} />
+                      <ThumbUp style={{cursor: 'pointer', marginRight: 10, color: '#66b2ff'}} />
                       {answer.upvotes}
                     </div>
                   </div>

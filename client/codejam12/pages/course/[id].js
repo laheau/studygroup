@@ -38,7 +38,7 @@ const Course = () => {
   return (
     <div className="text-center">
       <div className="rounded-lg p-[20px]">
-        <h1 className="text-[60px] font-bold text-white">{id}</h1>
+        <h1 className="text-[60px] font-bold text-[#0a1828]">{id}</h1>
       </div>
       <div className="flex justify-center m-auto rounded-lg p-[20px]">
         <div className="w-[50%] ">
@@ -60,7 +60,7 @@ const Course = () => {
                 href={`/question/${question.question_id}`}
                 key={question.question_id}
               >
-                <div className="flex justify-between space-x-5 w-[500px] bg-[#212326] text-xl my-2 rounded-lg p-[25px] transition transform hover:scale-125">
+                <div className="flex justify-between space-x-5 w-[500px] bg-[#66b2ff] text-xl my-2 rounded-lg p-[25px] transition transform hover:scale-125">
                   <div className="text-left text-white">{question.title}</div>
                   <div className="text-right text-white">
                     <ThumbUp style={{ color: "white", marginRight: 10 }} />
@@ -72,7 +72,7 @@ const Course = () => {
             );
           })}
         <Link href={`/course/${id}/question/create`}>
-          <div className="bg-[#212326] text-white my-5 text-xl font-bold rounded-lg p-[20px] transition transform hover:scale-125">
+          <div className="bg-[#66b2ff] text-white my-5 text-xl font-bold rounded-lg p-[20px] transition transform hover:scale-125">
             CREATE
           </div>
         </Link>

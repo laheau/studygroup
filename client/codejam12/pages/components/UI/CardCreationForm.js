@@ -35,8 +35,8 @@ export default function CardCreationForm() {
   
   return (
     <div className='relative mr-[130px] items-center justify-center w-[400px]'>
-      <h1 className='font-bold text-2xl text-center text-white my-5 uppercase'>Create a card</h1>
-      <div className='bg-[#212326] rounded-lg p-[20px] my-5 flex flex-col content-center '>
+      <h1 className='font-bold text-2xl text-center text-[#0a1828] my-5 uppercase'>Create a card</h1>
+      <div className='bg-[#66b2ff] rounded-lg p-[20px] my-5 flex flex-col content-center '>
         
       <form onSubmit={handleSubmit}>
         <div>
@@ -48,7 +48,7 @@ export default function CardCreationForm() {
         <div>
           <textarea onChange={(e) => setTags(e.target.value)} className='w-[100%] h-[100%] my-5 rounded-lg p-[10px]' placeholder='Tags' />
         </div>
-        <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#212326]  transition transform hover:scale-125"/>
+        <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#66b2ff]  transition transform hover:scale-125"/>
 
       </form>
       </div>

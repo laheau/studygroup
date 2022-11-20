@@ -43,7 +43,7 @@ const Create = () => {
 
     return (
         <div  className="">
-            <form onSubmit={handleSubmit} className="flex flex-col text-white p-[20px] m-auto my-10 rounded-lg bg-[#212326] w-[50%] justify-center items-center content-center">
+            <form onSubmit={handleSubmit} className="flex flex-col text-white p-[20px] m-auto my-10 rounded-lg bg-[#66b2ff] w-[50%] justify-center items-center content-center">
                 <label className="text-lg font-bold">
                     <div className="w-[100%] flex flex-col items-center">
 
@@ -61,7 +61,7 @@ const Create = () => {
                         <input color='black' className="p-[5px] w-[100%] text-black outline-black rounded-lg border-black border-2 m-5" type="text" name="tags" defaultValue={''} onChange={handleTagsChange} />
                     </div>
                 </label>
-                <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#212326]  transition transform hover:scale-125"/>
+                <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#66b2ff]  transition transform hover:scale-125"/>
             </form>
         </div>
     )

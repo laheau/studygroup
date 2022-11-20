@@ -38,8 +38,8 @@ const Group = () => {
     return (
         <div className="text-center">
             <div className="rounded-lg p-[20px]">
-                <h1 className="text-[60px] font-bold text-white">{group.name}</h1>
-                <h1 className="text-xl font-bold my-5 text-white">Study Cards</h1>
+                <h1 className="text-[60px] font-bold text-[#0a1828]">{group.name}</h1>
+                <h1 className="text-xl font-bold my-5 text-[#0a1828]">Study Cards</h1>
             </div>
             <div className="flex flex-col w-fit m-auto items-center h-screen content-center" >
                <Cards cards={cards} />

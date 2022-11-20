@@ -42,15 +42,18 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "#212326", zIndex: 999, position: 'relative' }}>
+    <AppBar position="static" style={{ backgroundColor: "#0a1828", zIndex: 999, position: 'relative' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Book sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Book 
+          style={{color: '#66b2ff'}}
+          sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
             href="/"
+            style={{color: '#66b2ff'}}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -133,17 +136,17 @@ function ResponsiveAppBar() {
             
             <Box sx={{ flexGrow: 1, alignItems: 'center', marginRight: 12}}>
 
-          <Link href='/quizz'>
-              <Subscriptions style={{textAlign: 'center'}} fontSize={'large'} />
+          <Link href='/quizz/1'>
+              <Subscriptions style={{textAlign: 'center', color: '#66b2ff'}} fontSize={'large'} />
           </Link>
             </Box>
 
 
           <Link href='/profile/1'>
-            <Style style={{margin: 10}} fontSize={'large'}/>
+            <Style style={{margin: 10, color: '#66b2ff'}} fontSize={'large'}/>
           </Link>
           <Link href='/profile/1/groups'>
-            <Groups style={{margin: 10}} fontSize={'large'}/>
+            <Groups style={{margin: 10, color: '#66b2ff'}} fontSize={'large'}/>
           </Link>
 
         </Toolbar>

@@ -45,7 +45,7 @@ function GroupMembers(props) {
     }
 
     const drawer = (
-        <div className='bg-["#212326"]'>
+        <div className='bg-["#66b2ff"]'>
             <Toolbar />
             <Divider />
             <List>
@@ -77,7 +77,7 @@ function GroupMembers(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ backgroundColor: "#212326", overflow: 'hidden' }}>
+        <Box sx={{ backgroundColor: "#66b2ff", overflow: 'hidden' }}>
             <CssBaseline />
 
             <Box

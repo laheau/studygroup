@@ -19,7 +19,7 @@ export default function Cards({cards}) {
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
-                style={{ height: '300px', backgroundColor: '#212326', borderRadius: 15, flexDirection: "column" }}
+                style={{ height: '300px', backgroundColor: '#66b2ff', borderRadius: 15, flexDirection: "column" }}
               >
                 <div className="flex flex-col items-center">
 
@@ -27,7 +27,7 @@ export default function Cards({cards}) {
                   <Typography fontWeight={"bold"} fontSize={20} textAlign={'center'} >{card.question}</Typography>
                 </div>
               </AccordionSummary>
-              <AccordionDetails style={{ height: '300px', backgroundColor: "#3a3d42", borderRadius: 15, justifyContent: "center" }}>
+              <AccordionDetails style={{ height: '300px', backgroundColor: "#204f85", borderRadius: 15, justifyContent: "center" }}>
                 <Typography fontWeight={"semi-bold"} fontSize={20} textAlign={'center'} >
                   {card.answer}
                 </Typography>
