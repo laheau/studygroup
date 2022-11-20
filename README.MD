@@ -1,3 +1,3 @@
-### Code Jam Project
+# Code Jam Project
 
-## Ed Much Much Better
+### Ed Much Much Better
