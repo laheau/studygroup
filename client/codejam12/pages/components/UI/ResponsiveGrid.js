@@ -46,7 +46,6 @@ export default function ResponsiveGrid() {
       <div className="flex justify-center m-auto rounded-lg p-[20px]">
         <div className="w-[50%] ">
           <TextField fullWidth label="Search for Courses" id="search" onChange={(e)=> setFilter(e.target.value)} 
-          style={{borderColor: 'white'}}
           />
         </div>
       </div>
@@ -55,7 +54,7 @@ export default function ResponsiveGrid() {
         {filteredCourses.map((course) => {
           console.log(course);
           return (
-            <Link href={`/${course.course_id}`} key={course.course_id}>
+            <Link href={`/course/${course.course_id}`} key={course.course_id}>
               <div className="flex justify-between space-x-5 w-[500px] bg-[#212326] text-xl my-2 rounded-lg p-[25px] transition transform hover:scale-125">
                 <div className="text-left text-white">{course.name}</div>
                 <div className="text-right text-white">{course.course_id}</div>
