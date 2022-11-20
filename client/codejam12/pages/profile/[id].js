@@ -37,48 +37,52 @@ const Profile = () => {
 
   useEffect(() => {
     if (filter) {
-      setFilteredCards(cards.filter(card => card.question.toLowerCase().includes(filter.toLowerCase()) || card.tags.toLowerCase().includes(filter.toLowerCase())|| card.answer.toLowerCase().includes(filter.toLowerCase())))
+      setFilteredCards(cards.filter(card => card.question.toLowerCase().includes(filter.toLowerCase()) || card.tags.toLowerCase().includes(filter.toLowerCase()) || card.answer.toLowerCase().includes(filter.toLowerCase())))
     } else setFilteredCards(cards);
-  }, [filter, cards]) 
+  }, [filter, cards])
   console.log(filteredCards)
 
   return (
-    <div className="flex flex-col w-fit m-auto items-center h-screen content-center">
-      <div className="w-[50%] ">
-          <TextField
-            fullWidth
-            label="Search for Card"
-            id="search"
-            onChange={(e) => setFilter(e.target.value)}
-          />
-        </div>
-      {filteredCards.map(card => {
-        console.log(card.tags);
-        return (
-          <div className="w-[500px] h rounded-lg p-[15px] my-2">
-            <Accordion style={{ borderRadius: 15, backgroundColor: "transparent", color: 'white', fontSize: 20 }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                style={{ height: '300px', backgroundColor: '#212326', borderRadius: 15, flexDirection: "column" }}
-              >
-                <div className="flex flex-col items-center">
+    <div>
 
-                  {card.tags ? <Typography fontWeight={16} textAlign='right'  >{card.tags}</Typography> : null}
-                  <Typography fontWeight={"bold"} fontSize={20} textAlign={'center'} >{card.question}</Typography>
-                </div>
-              </AccordionSummary>
-              <AccordionDetails style={{ height: '300px', backgroundColor: "#3a3d42", borderRadius: 15, justifyContent: "center" }}>
-                <Typography fontWeight={"semi-bold"} fontSize={20} textAlign={'center'} >
-                  {card.answer}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </div>
-        )
-      })}
+      <div className="flex m-auto my-10 w-[50%] text-center items-center justify-center">
+        <TextField
+          fullWidth
+          label="Search for Card"
+          id="search"
+          onChange={(e) => setFilter(e.target.value)}
+        />
+      </div>
+      <div className="flex flex-col w-fit m-auto items-center h-screen content-center">
+        {filteredCards.map(card => {
+          console.log(card.tags);
+          return (
+            <div className="w-[500px] h rounded-lg p-[15px] my-2">
+              <Accordion style={{ borderRadius: 15, backgroundColor: "transparent", color: 'white', fontSize: 20 }}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                  style={{ height: '300px', backgroundColor: '#212326', borderRadius: 15, flexDirection: "column" }}
+                >
+                  <div className="flex flex-col items-center">
+
+                    {card.tags ? <Typography fontWeight={16} textAlign='right'  >{card.tags}</Typography> : null}
+                    <Typography fontWeight={"bold"} fontSize={20} textAlign={'center'} >{card.question}</Typography>
+                  </div>
+                </AccordionSummary>
+                <AccordionDetails style={{ height: '300px', backgroundColor: "#3a3d42", borderRadius: 15, justifyContent: "center" }}>
+                  <Typography fontWeight={"semi-bold"} fontSize={20} textAlign={'center'} >
+                    {card.answer}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </div>
+          )
+        })}
+      </div>
     </div>
+
   );
 }
 
