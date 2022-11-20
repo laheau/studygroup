@@ -42,26 +42,26 @@ const Create = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center content-center min-h-screen">
+        <div  className="">
+            <form onSubmit={handleSubmit} className="flex flex-col text-white p-[20px] m-auto my-10 rounded-lg bg-[#212326] w-[50%] justify-center items-center content-center">
                 <label className="text-lg font-bold">
-                    <div className="flex flex-col items-center">
+                    <div className="w-[100%] flex flex-col items-center">
 
                         Title:
-                        <input className="p-[5px] outline-black rounded-lg border-black border-2 m-5" type="text" name="title" defaultValue={''} onChange={handleTitleChange} />
+                        <input className="p-[5px] w-[250%] outline-black rounded-lg border-black border-2 m-5" type="text" name="title" defaultValue={''} onChange={handleTitleChange} />
                     </div>
-                    <div className="flex flex-col items-center">
+                    <div className="w-[100%] flex flex-col items-center">
                         Content:
 
-                        <textarea className="p-[5px] w-[150%] h-[150%] outline-black rounded-lg border-black border-2 m-5" type="textarea" name="content" defaultValue={''} onChange={handleContentChange} />
+                        <textarea className="p-[5px] w-[250%] h-[150%] outline-black rounded-lg border-black border-2 m-5" type="textarea" name="content" defaultValue={''} onChange={handleContentChange} />
                     </div>
-                    <div className="flex flex-col items-center">
+                    <div className="w-[100%] flex flex-col items-center">
 
                         Tags:
-                        <input className="p-[5px] outline-black rounded-lg border-black border-2 m-5" type="text" name="tags" defaultValue={''} onChange={handleTagsChange} />
+                        <input className="p-[5px] w-[250%] outline-black rounded-lg border-black border-2 m-5" type="text" name="tags" defaultValue={''} onChange={handleTagsChange} />
                     </div>
                 </label>
-                <input type="submit" className="p-[10px] bg-lime-200 rounded-lg  transition transform hover:scale-125"/>
+                <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#212326]  transition transform hover:scale-125"/>
             </form>
         </div>
     )

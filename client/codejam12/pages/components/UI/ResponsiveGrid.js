@@ -35,13 +35,13 @@ export default function ResponsiveGrid() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} alignItems='center' justifyContent="center" margin="auto">
+      <Grid className="my-10" container spacing={{ xs: 10, md: 3 }} columns={{ xs: 16, sm: 8, md: 12 }} alignItems='center' justifyContent="center" margin="auto">
         {courses.map(course => {
           console.log(course);
           return (
-            <Grid item xs={1} sm={4} md={1} key={course.course_id}>
+            <Grid item xs={10} sm={4} md={1} key={course.course_id}>
               <Link href={`/course/${course.course_id}`}>
-                <div className='bg-lime-100 w-fit p-[15px] rounded-lg font-bold text-xl'>{course.course_id}</div>
+                <div className='mx-10 bg-[#212326] w-fit p-[15px] rounded-lg font-bold text-xl text-white  transition transform hover:scale-125'>{course.course_id}</div>
               </Link>
             </Grid>
           )

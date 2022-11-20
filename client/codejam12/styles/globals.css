@@ -18,12 +18,13 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: light) {
   html {
     color-scheme: light;
   }
   body {
     color: black;
-    background: white;
+    background: #494d54;
   }
+text {
+  color: white;
 }

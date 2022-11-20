@@ -3,7 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { ArrowUpward, ArrowUpwardRounded } from "@mui/icons-material";
+import { ThumbUp, ArrowUpwardRounded } from "@mui/icons-material";
 
 const Course = () => {
     const [questions, setQuestions] = useState([]);
@@ -30,10 +30,10 @@ const Course = () => {
     return (
         <div className="text-center">
             <div className="rounded-lg p-[20px]">
-                <h1 className="text-2xl font-bold">Course: {id}</h1>
+                <h1 className="text-[60px] font-bold text-white">{id}</h1>
+                <h1 className="text-xl font-bold my-5 text-white">QUESTIONS</h1>
             </div>
             <div className="flex flex-col w-fit m-auto items-center h-screen content-center" >
-                <h1 className="text-xl font-bold my-5">QUESTIONS</h1>
                 {questions.map(question => {
                     console.log(question);
                     return (
@@ -41,13 +41,13 @@ const Course = () => {
                             href={`/question/${question.question_id}`}
                             key={question.question_id}
                         >
-                            <div className="flex space-x-5 bg-lime-200 text-xl my-5 rounded-lg p-[20px] transition transform hover:scale-125">
-                                <div className="text-left">
+                            <div className="flex justify-between space-x-5 w-[500px] bg-[#212326] text-xl my-2 rounded-lg p-[25px] transition transform hover:scale-125">
+                                <div className="text-left text-white">
                                     {question.title}
                                 </div>
-                                <div className="text-right">
+                                <div className="text-right text-white">
 
-                                    <ArrowUpward />
+                                    <ThumbUp style={{color: 'white', marginRight: 10}} />
 
 
                                     {question.upvotes}
@@ -59,7 +59,7 @@ const Course = () => {
                 <Link
                     href={`/course/${id}/question/create`}
                 >
-                    <div className="bg-lime-200 my-5 text-xl font-bold rounded-lg p-[20px] transition transform hover:scale-125">
+                    <div className="bg-[#212326] text-white my-5 text-xl font-bold rounded-lg p-[20px] transition transform hover:scale-125">
                         CREATE
                     </div>
                 </Link>
