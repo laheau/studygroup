@@ -7,14 +7,19 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { color } from "@mui/system";
 import { CenterFocusStrong } from "@mui/icons-material";
+import TextField from "@mui/material/TextField";
+
 
 const Profile = () => {
   const router = useRouter();
   const { id } = router.query;
 
+  const [filter, setFilter] = useState("");
   const [cards, setCards] = useState([]);
   const [fetched, setFetched] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [fetchedCards, setFetchedCards] = useState(false);
+  const [filteredCards, setFilteredCards] = useState([]);
 
   useEffect(() => {
     if (!fetched) {
@@ -29,9 +34,25 @@ const Profile = () => {
         });
     }
   }, []);
+
+  useEffect(() => {
+    if (filter) {
+      setFilteredCards(cards.filter(card => card.question.toLowerCase().includes(filter.toLowerCase()) || card.tags.toLowerCase().includes(filter.toLowerCase())|| card.answer.toLowerCase().includes(filter.toLowerCase())))
+    } else setFilteredCards(cards);
+  }, [filter, cards]) 
+  console.log(filteredCards)
+
   return (
     <div className="flex flex-col w-fit m-auto items-center h-screen content-center">
-      {cards.map(card => {
+      <div className="w-[50%] ">
+          <TextField
+            fullWidth
+            label="Search for Card"
+            id="search"
+            onChange={(e) => setFilter(e.target.value)}
+          />
+        </div>
+      {filteredCards.map(card => {
         console.log(card.tags);
         return (
           <div className="w-[500px] h rounded-lg p-[15px] my-2">
