@@ -34,18 +34,18 @@ const Profile = () => {
         {cards.map(cards => {
                     console.log(cards.question);
                     return (
-    <div className="border-2 w-[500px] h rounded-lg p-[15px] my-2 outline-lime-500 border-lime-200">
-    <Accordion>
+    <div className="w-[500px] h rounded-lg p-[15px] my-2">
+    <Accordion style={{borderRadius: 15, backgroundColor: "transparent", color: 'white', fontSize: 20}}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
         id="panel1a-header"
-        style={{height: '300px'}}
+        style={{height: '300px', backgroundColor: '#212326', borderRadius: 15}}
       >
-        <Typography >{cards.question}</Typography>
+        <Typography fontWeight={"bold"} fontSize={20} textAlign={'center'} >{cards.question}</Typography>
       </AccordionSummary>
-      <AccordionDetails style={{height: '300px', backgroundColor: "lightgray"}}>
-        <Typography >
+      <AccordionDetails style={{height: '300px', backgroundColor: "#3a3d42", borderRadius: 15, justifyContent: "center"}}>
+        <Typography fontWeight={"semi-bold"} fontSize={20} textAlign={'center'} >
           {cards.answer}
         </Typography>
       </AccordionDetails>
