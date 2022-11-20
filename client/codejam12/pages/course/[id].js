@@ -25,8 +25,8 @@ const Course = () => {
         }
     }, [id])
 
-    console.log(questions)
 
+ 
     return (
         <div className="text-center">
             <div className="rounded-lg p-[20px]">
@@ -34,7 +34,7 @@ const Course = () => {
                 <h1 className="text-xl font-bold my-5 text-white">QUESTIONS</h1>
             </div>
             <div className="flex flex-col w-fit m-auto items-center h-screen content-center" >
-                {questions.map(question => {
+                {questions.sort((b,a) => a.upvotes - b.upvotes).map(question => {
                     console.log(question);
                     return (
                         <Link
