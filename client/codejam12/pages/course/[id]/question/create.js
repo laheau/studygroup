@@ -48,17 +48,17 @@ const Create = () => {
                     <div className="w-[100%] flex flex-col items-center">
 
                         Title:
-                        <input className="p-[5px] w-[250%] outline-black rounded-lg border-black border-2 m-5" type="text" name="title" defaultValue={''} onChange={handleTitleChange} />
+                        <input className="p-[5px] w-[100%] text-black outline-black rounded-lg border-black border-2 m-5" type="text" name="title" defaultValue={''} onChange={handleTitleChange} />
                     </div>
                     <div className="w-[100%] flex flex-col items-center">
                         Content:
 
-                        <textarea className="p-[5px] w-[250%] h-[150%] outline-black rounded-lg border-black border-2 m-5" type="textarea" name="content" defaultValue={''} onChange={handleContentChange} />
+                        <textarea color='black' className="p-[5px] text-black w-[100%] h-[150%] outline-black rounded-lg border-black border-2 m-5" type="textarea" name="content" defaultValue={''} onChange={handleContentChange} />
                     </div>
                     <div className="w-[100%] flex flex-col items-center">
 
                         Tags:
-                        <input className="p-[5px] w-[250%] outline-black rounded-lg border-black border-2 m-5" type="text" name="tags" defaultValue={''} onChange={handleTagsChange} />
+                        <input color='black' className="p-[5px] w-[100%] text-black outline-black rounded-lg border-black border-2 m-5" type="text" name="tags" defaultValue={''} onChange={handleTagsChange} />
                     </div>
                 </label>
                 <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#212326]  transition transform hover:scale-125"/>

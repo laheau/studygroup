@@ -46,7 +46,7 @@ export default function CardCreationForm() {
           <textarea onChange={handleChangeAnswer} className='w-[100%] h-[100%] my-5 rounded-lg p-[10px]' placeholder='Answer' />
         </div>
         <div>
-          <textarea onChange={(e) => setTags(e.target.value)} className='w-[100%] h-[100%] my-5 rounded-lg p-[10px]' placeholder='Answer' />
+          <textarea onChange={(e) => setTags(e.target.value)} className='w-[100%] h-[100%] my-5 rounded-lg p-[10px]' placeholder='Tags' />
         </div>
         <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#212326]  transition transform hover:scale-125"/>
 
