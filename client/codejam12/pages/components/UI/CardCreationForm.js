@@ -1,6 +1,8 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 
 export default function CardCreationForm() {
+  const router = useRouter()
   const [question,setQuestion] = React.useState("")
   const [answer,setAnswer] = React.useState("")
 
@@ -14,11 +16,12 @@ export default function CardCreationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = {
-      student_id: 1,
+      studentId: 1,
       question: question,
       answer: answer,
       tags: "",
     };
+    console.log(body)
     fetch(`http://localhost:8000/card`, {
       method: "post",
       headers: {
@@ -26,7 +29,7 @@ export default function CardCreationForm() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-    }).then(res => console.log(res));
+    }).then(router.push('/profile/1'));
   };
   
   return (
@@ -34,21 +37,15 @@ export default function CardCreationForm() {
       <h1 className='font-bold text-2xl text-center text-white my-5 uppercase'>Create a card</h1>
       <div className='bg-[#212326] rounded-lg p-[20px] my-5 flex flex-col content-center '>
         
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
-          <textarea onChange={handleChangeQuestion} className='w-[100%] h-[100%] rounded-lg p-[10px]' placeholder='Question' />
+          <textarea onChange={handleChangeQuestion} className='w-[100%] h-[100%] my-5 rounded-lg p-[10px]' placeholder='Question' />
         </div>
         <div>
-          <textarea onChange={handleChangeAnswer} className='w-[100%] h-[100%] rounded-lg p-[10px]' placeholder='Answer' />
+          <textarea onChange={handleChangeAnswer} className='w-[100%] h-[100%] my-5 rounded-lg p-[10px]' placeholder='Answer' />
         </div>
-        <button
-              type="submit"
-              title="submit"
-              className="p-[10px]
-                    bg-white
-                    rounded-lg text-center font-bold text-[#212326] transition transform hover:scale-125"
-              onSubmit={handleSubmit}
-            >SUBMIT</button>
+        <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#212326]  transition transform hover:scale-125"/>
+
       </form>
       </div>
     </div>)

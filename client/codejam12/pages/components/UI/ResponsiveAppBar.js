@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { useRouter } from "next/router";
 import AppBar from '@mui/material/AppBar';
+import Link from 'next/link';
+
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -12,13 +15,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Book, Home } from '@mui/icons-material';
-import { Link } from '@mui/material';
+import { Book, Home, Person2 } from '@mui/icons-material';
 
 const pages = ['Home'];
-const settings = ['Profile','Logout'];
+const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -34,11 +37,12 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseUserMenu = () => {
+    router.push('')
     setAnchorElUser(null);
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: "#212326"}}>
+    <AppBar position="static" style={{ backgroundColor: "#212326" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Book sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -122,42 +126,16 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link href='/'>
-                <Home style={{color: "white"}} />
-                </Link>
+                <></>
               </Button>
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+
+          <Link href='/profile/1'>
+            <Person2 />
+          </Link>
+
         </Toolbar>
       </Container>
     </AppBar>
