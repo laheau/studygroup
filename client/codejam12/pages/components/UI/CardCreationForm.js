@@ -5,6 +5,7 @@ export default function CardCreationForm() {
   const router = useRouter()
   const [question,setQuestion] = React.useState("")
   const [answer,setAnswer] = React.useState("")
+  const [tags,setTags] = React.useState("")
 
   
   const handleChangeQuestion = (e) => {
@@ -19,7 +20,7 @@ export default function CardCreationForm() {
       studentId: 1,
       question: question,
       answer: answer,
-      tags: "",
+      tags: tags,
     };
     console.log(body)
     fetch(`http://localhost:8000/card`, {
@@ -43,6 +44,9 @@ export default function CardCreationForm() {
         </div>
         <div>
           <textarea onChange={handleChangeAnswer} className='w-[100%] h-[100%] my-5 rounded-lg p-[10px]' placeholder='Answer' />
+        </div>
+        <div>
+          <textarea onChange={(e) => setTags(e.target.value)} className='w-[100%] h-[100%] my-5 rounded-lg p-[10px]' placeholder='Answer' />
         </div>
         <input type="submit" className="p-[10px] uppercase font-bold bg-white rounded-lg text-[#212326]  transition transform hover:scale-125"/>
 

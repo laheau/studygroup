@@ -29,7 +29,7 @@ const Question = () => {
       student_id: 1,
       question_id: id,
       content: content,
-      tags: "",
+      tags: question.course_id,
     };
     fetch(`http://localhost:8000/answer`, {
       method: "post",
@@ -38,7 +38,7 @@ const Question = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-    }).then(res => console.log(res));
+    }).then(router.reload(window.location.pathname));
   };
 
   useEffect(() => {
