@@ -62,7 +62,7 @@ const Course = () => {
               >
                 <div className="flex justify-between space-x-5 w-[500px] bg-[#66b2ff] text-xl my-2 rounded-lg p-[25px] transition transform hover:scale-125">
                   <div className="text-left text-white">{question.title}</div>
-                  <div className="text-right text-white">
+                  <div className="flex text-right text-white">
                     <ThumbUp style={{ color: "white", marginRight: 10 }} />
 
                     {question.upvotes}

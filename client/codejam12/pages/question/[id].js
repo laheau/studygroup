@@ -31,6 +31,7 @@ const Question = () => {
       content: content,
       tags: question.course_id,
     };
+    console.log('ge', body);
     fetch(`http://localhost:8000/answer`, {
       method: "post",
       headers: {
@@ -38,7 +39,7 @@ const Question = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-    }).then(router.reload(window.location.pathname));
+    })
   };
 
   useEffect(() => {
@@ -92,17 +93,13 @@ const Question = () => {
               defaultValue={""}
               onChange={handleContentChange}
             ></textarea>
-            <button
+            <input
               type="submit"
-              title="submit"
+              value="SUBMIT"
               className="p-[10px]
                     bg-[#66b2ff]
                     rounded-lg text-center font-bold text-white transition transform hover:scale-125"
-              onSubmit={handleSubmit}
-            >
-              {" "}
-              SUBMIT{" "}
-            </button>
+            />
           </form>
         </div>
         {answers.map((answer) => {
