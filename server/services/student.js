@@ -36,7 +36,7 @@ async function getCards(id) {
         `
             SELECT *
             FROM card
-            WHERE student_id = ${id}
+            WHERE student_id = '${id}'
         `
     )
 
