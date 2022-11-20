@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Book, Groups, Home, Person2 } from '@mui/icons-material';
+import { Book, Groups, Home, Person2, Style, Subscriptions } from '@mui/icons-material';
 
 const pages = ['Home'];
 const settings = ['Profile', 'Logout'];
@@ -130,10 +130,17 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
+            
+            <Box sx={{ flexGrow: 1, alignItems: 'center', marginRight: 12}}>
+
+          <Link href='/quizz'>
+              <Subscriptions style={{textAlign: 'center'}} fontSize={'large'} />
+          </Link>
+            </Box>
 
 
           <Link href='/profile/1'>
-            <Person2 style={{margin: 10}} fontSize={'large'}/>
+            <Style style={{margin: 10}} fontSize={'large'}/>
           </Link>
           <Link href='/profile/1/groups'>
             <Groups style={{margin: 10}} fontSize={'large'}/>
