@@ -1,52 +1,69 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../../../styles/Home.module.css'
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Link from 'next/link';
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../../../styles/Home.module.css";
+import * as React from "react";
+import { useState, useEffect } from "react";
+import { experimentalStyled as styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import Link from "next/link";
+import TextField from "@mui/material/TextField";
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(2),
-  textAlign: 'center',
+  textAlign: "center",
   color: theme.palette.text.secondary,
 }));
 
 export default function ResponsiveGrid() {
   const [courses, setCourses] = useState([]);
+  const [filteredCourses, setFilteredCourses] = useState([]);
   const [fetched, setFetched] = useState(false);
-
+  const [filter, setFilter] = useState("");
   useEffect(() => {
     if (!fetched) {
-      fetch('http://localhost:8000/course/all')
+      fetch("http://localhost:8000/course/all")
         .then((response) => response.json())
         .then((data) => {
-          setCourses(data.data)
+          setCourses(data.data);
           setFetched(true);
         });
     }
-  }, [])
+  }, []);
 
+  useEffect(() => {
+    if (filter) {
+      setFilteredCourses(courses.filter(course => course.course_id.toLowerCase().includes(filter.toLowerCase()) || course.name.toLowerCase().includes(filter.toLowerCase())))
+    } else setFilteredCourses(courses);
+  }, [filter, courses])
+  console.log(filteredCourses)
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid className="my-10" container spacing={{ xs: 10, md: 3 }} columns={{ xs: 16, sm: 8, md: 12 }} alignItems='center' justifyContent="center" margin="auto">
-        {courses.map(course => {
+    <div className="text-center">
+      <div className="flex justify-center m-auto rounded-lg p-[20px]">
+        <div className="w-[50%] ">
+          <TextField fullWidth label="Search for Courses" id="search" onChange={(e)=> setFilter(e.target.value)} 
+          style={{borderColor: 'white'}}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col w-fit m-auto items-center h-screen content-center">
+        {filteredCourses.map((course) => {
           console.log(course);
           return (
-            <Grid item xs={10} sm={4} md={1} key={course.course_id}>
-              <Link href={`/course/${course.course_id}`}>
-                <div className='mx-10 bg-[#212326] w-fit p-[15px] rounded-lg font-bold text-xl text-white  transition transform hover:scale-125'>{course.course_id}</div>
-              </Link>
-            </Grid>
-          )
+            <Link href={`/${course.course_id}`} key={course.course_id}>
+              <div className="flex justify-between space-x-5 w-[500px] bg-[#212326] text-xl my-2 rounded-lg p-[25px] transition transform hover:scale-125">
+                <div className="text-left text-white">{course.name}</div>
+                <div className="text-right text-white">{course.course_id}</div>
+              </div>
+            </Link>
+          );
         })}
-      </Grid>
-    </Box>
+      </div>
+    </div>
   );
 }
